@@ -1,0 +1,32 @@
+{
+  "indent": 2,
+  "globalstrict": true,
+
+  "node": true,
+  "browser": true,
+
+  "esnext": true,
+  "newcap": false,
+  "unused": true,
+  "eqnull": true,
+  "laxbreak": true,
+  "noyield": true,
+  "expr": true,
+  "boss": true,
+  "validthis": true,
+
+  "-W084": false,
+  "-W086": false,
+
+  "globals": {
+    "Promise": true,
+    "regeneratorRuntime": true,
+
+    "describe": true,
+    "before": true,
+    "after": true,
+    "beforeEach": true,
+    "afterEach": true,
+    "it": true
+  }
+}

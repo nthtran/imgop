@@ -1,0 +1,9 @@
+{
+  "ignore": [".git", "./node_modules"],
+  "execMap": {
+    "js": "iojs"
+  },
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
