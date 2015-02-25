@@ -16,7 +16,7 @@ npm install imgop
 
 - Retrieve images from an s3 bucket
 - Cache downloaded images to the file system for subsequent renders using `fs-lru-cache`
-- Optimise them using parameters added to the querystring
+- Optimise them (resize and adjust quality) using parameters added to the querystring
 
 ## Usage
 
@@ -26,7 +26,7 @@ npm install imgop
   AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY
   IMGOP_BUCKET
-  PORT (optional - default is 3000)
+  PORT // optional - default is 3000
   ```
 
   Run server:
