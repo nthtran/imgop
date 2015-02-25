@@ -68,4 +68,5 @@ Format. `jpg`, `png` or `webp`. Default is `jpg`.
 ## Credits
 
 [sharp](https://github.com/lovell/sharp)
+
 [simgr](https://github.com/mgmtio/simgr)

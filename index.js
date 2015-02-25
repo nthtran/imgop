@@ -5,4 +5,4 @@ require('babel/register')({
   ignore: new RegExp(`${__dirname}\/node_modules`)
 });
 
-require('./lib');
+module.exports = require('./lib');
