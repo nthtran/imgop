@@ -1,10 +1,11 @@
 {
   "name": "imgop",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Image-optimisation server",
   "main": "index.js",
   "author": "Nathan Tran",
   "license": "MIT",
+  "repository": "nthtran/imgop",
   "dependencies": {
     "babel": "^4.4.6",
     "debug": "^2.1.1",
@@ -37,6 +38,7 @@
     "image",
     "resize",
     "libvips",
-    "optimisation"
+    "optimisation",
+    "server"
   ]
 }
