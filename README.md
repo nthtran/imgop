@@ -16,7 +16,7 @@ npm install imgop
 
 - Retrieve images from an s3 bucket
 - Cache downloaded images to the file system for subsequent renders using `fs-lru-cache`
-- Tesize and adjust image quality using parameters added to the querystring
+- Resize and adjust image quality using parameters added to the querystring
 
 ## Usage
 
