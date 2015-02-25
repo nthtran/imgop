@@ -162,6 +162,7 @@ describe('GET /:image', function () {
     .expect(200)
     .end(function (err, res) {
       assert.ifError(err);
+      assert.equal(res.headers['content-type'], 'image/jpeg');
       assert.equal(imageSize(res.body).type, 'jpg');
       done();
     });
@@ -172,6 +173,7 @@ describe('GET /:image', function () {
     .expect(200)
     .end(function (err, res) {
       assert.ifError(err);
+      assert.equal(res.headers['content-type'], 'image/png');
       assert.equal(imageSize(res.body).type, 'png');
       done();
     });
@@ -182,6 +184,7 @@ describe('GET /:image', function () {
     .expect(200)
     .end(function (err, res) {
       assert.ifError(err);
+      assert.equal(res.headers['content-type'], 'image/webp');
       assert.equal(imageSize(res.body).type, 'webp');
       done();
     });
