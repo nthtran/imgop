@@ -1,6 +1,6 @@
 {
   "name": "imgop",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Image-optimisation server",
   "main": "index.js",
   "author": "Nathan Tran",
