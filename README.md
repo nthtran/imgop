@@ -16,7 +16,7 @@ npm install imgop
 
 - Retrieve images from an s3 bucket
 - Cache downloaded images to the file system for subsequent renders using `fs-lru-cache`
-- Optimise them (resize and adjust quality) using parameters added to the querystring
+- Tesize and adjust image quality using parameters added to the querystring
 
 ## Usage
 
@@ -35,7 +35,7 @@ npm install imgop
   node index.js
   ```
 
-  Modify an image by adding parameters to the querystring.
+  Modify an image by adding parameters to the querystring:
 
   ```
   /example.jpg?w=1050&h=700&q=75&fit=crop&fm=png
@@ -43,24 +43,29 @@ npm install imgop
 
 ## API
 
-Similar to `imgix` with only the following parameters supported.
+Similar to [`imgix`](http://www.imgix.com/docs/reference) with only the following parameters supported.
 
 ### `w`
 
+Width.
+
 ### `h`
+
+Height.
 
 ### `q`
 
-Default is `80`.
+Quality. Default is `80`.
 
 ### `fit`
 
-`max` or `crop`. Default is `max`.
+Fit mode. `max` or `crop`. Default is `max`.
 
 ### `fm`
 
-`jpg`, `png` or `webp`. Default is `jpg`.
+Format. `jpg`, `png` or `webp`. Default is `jpg`.
 
 ## Credits
 
+[sharp](https://github.com/lovell/sharp)
 [simgr](https://github.com/mgmtio/simgr)
