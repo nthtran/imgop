@@ -5,6 +5,3 @@
 /node_modules
 coverage
 cache
-
-babel.json
-fs-lru-cache
