@@ -32,7 +32,7 @@ npm install imgop
   Run server:
 
   ```
-  node index.js
+  npm start
   ```
 
   Modify an image by adding parameters to the querystring:

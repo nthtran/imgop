@@ -1,14 +1,13 @@
 'use strict';
 
-let S3 = require('knox');
 let path = require('path');
 let fs = require('fs');
 let assert = require('assert');
 let imageSize = require('image-size');
 let server = require('..').listen();
 let request = require('supertest').agent(server);
-let options = require('../lib/options');
-let client = S3.createClient(options.s3);
+let S3 = require('../lib/s3');
+let s3 = S3();
 
 let key = '/input.jpg';
 let file = path.resolve('.', `test/fixtures${key}`);
@@ -17,7 +16,7 @@ let file = path.resolve('.', `test/fixtures${key}`);
 before(function (done) {
   this.timeout(20000);
 
-  client.headFile(key, checkExists);
+  s3.headFile(key, checkExists);
 
   function checkExists(err, res) {
     if (err) done(err);
@@ -31,7 +30,7 @@ before(function (done) {
 
   function upload(err, stat) {
     if (err) done(err);
-    client.putStream(fs.createReadStream(file), key, {
+    s3.putStream(fs.createReadStream(file), key, {
       'Content-Length': stat.size,
       'Content-Type': 'image/jpeg'
     }, done);
@@ -93,7 +92,7 @@ describe('GET /:image', function () {
     });
   });
 
-  it('should not serve files that are not .jpg, .png or .webp', function (done) {
+  it('should not serve file types that are not supported', function (done) {
     request.get('/input.gif')
     .expect(415)
     .end(function (err, res) {
@@ -113,7 +112,7 @@ describe('GET /:image', function () {
     });
   });
 
-  // TODO: .png and .webp
+  // TODO: .png, .webp and .tiff
 
   it('should resize image by width', function (done) {
     request.get('/input.jpg?w=500')
@@ -186,6 +185,16 @@ describe('GET /:image', function () {
       assert.ifError(err);
       assert.equal(res.headers['content-type'], 'image/webp');
       assert.equal(imageSize(res.body).type, 'webp');
+      done();
+    });
+  });
+
+  it('should default to the default option if querystring is invalid', function (done) {
+    request.get('/input.jpg?w=100h=100')
+    .expect(200)
+    .end(function (err, res) {
+      assert.ifError(err);
+      assert.equal(imageSize(res.body).width, baseImage.width);
       done();
     });
   });

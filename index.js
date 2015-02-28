@@ -1,8 +1,5 @@
 'use strict';
 
-require('babel/register')({
-  // don't compile external deps
-  ignore: new RegExp(`${__dirname}\/node_modules`)
-});
+require('./babel');
 
-module.exports = require('./lib/server');
+module.exports = require('./lib');
