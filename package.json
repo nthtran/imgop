@@ -2,7 +2,7 @@
   "name": "imgop",
   "version": "0.0.11",
   "description": "Image-optimisation server",
-  "main": "index.js",
+  "main": "lib",
   "author": "Nathan Tran",
   "license": "MIT",
   "repository": "nthtran/imgop",
@@ -32,6 +32,7 @@
     "supertest": "0"
   },
   "scripts": {
+    "start": "npm bin/imgop",
     "test": "mocha --bail --reporter spec",
     "test-cov": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- test/index.js"
   },
