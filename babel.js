@@ -1,6 +1,9 @@
 'use strict';
 
 require('babel/register')({
-  // don't compile external deps
-  ignore: new RegExp(`${__dirname}\/node_modules`)
+  // prevent issues with global installs
+  // and babel ignoring any occurrence of
+  // 'node_modules' by default.
+  ignore: false,
+  only: /imgop\/lib\//
 });

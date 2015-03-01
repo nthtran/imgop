@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+'use strict';
+
+require('babel/register')({
+  // prevent issues with global installs
+  // and babel ignoring any occurrence of
+  // 'node_modules' by default.
+  ignore: false,
+  only: /imgop\/lib\//
+});
+
+var program = require('commander');
+var pkg = require('../package');
+var imgop = require('../lib');
+
+program
+.version(pkg.version)
+.usage('[options]')
+.option('-p, --port <port>', 'Port to listen on [$PORT or 3000]', process.env.PORT || 3000)
+.parse(process.argv);
+
+if (program.args.length > 0) {
+  program.help();
+}
+
+var port = program.port;
+imgop().listen(port, function (err) {
+  if (err) throw err;
+  console.log('%s %s listening on %d', pkg.name, pkg.version, port);
+});

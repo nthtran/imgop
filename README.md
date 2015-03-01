@@ -2,12 +2,6 @@
 
 Image-optimisation server powered by `libvips`
 
-## Installation
-
-```
-npm install imgop
-```
-
 ## Requirements
 
 - `libvips`
@@ -25,20 +19,33 @@ npm install imgop
   ```
   AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY
-  IMGOP_BUCKET
+  IMGOP_BUCKET // bucket to retrieve images from
   PORT // optional - default is 3000
   ```
 
-  Run server:
+  Install and run the server:
+
+  ```bash
+  $ npm install -g imgop
+  $ imgop
+  ```
+
+  The available options are:
 
   ```
-  npm start
+  Usage: imgop [options]
+
+  Options:
+
+    -h, --help         output usage information
+    -V, --version      output the version number
+    -p, --port <port>  Port to listen on [$PORT or 3000]
   ```
 
   Modify an image by adding parameters to the querystring:
 
   ```
-  /example.jpg?w=1050&h=700&q=75&fit=crop&fm=png
+  http://localhost:3000/example.jpg?w=1050&h=700&q=75&fit=crop&fm=png
   ```
 
 ## API
