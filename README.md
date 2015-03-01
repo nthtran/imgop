@@ -20,10 +20,9 @@ Image-optimisation server powered by `libvips`
   AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY
   IMGOP_BUCKET // bucket to retrieve images from
-  PORT // optional - default is 3000
   ```
 
-  Install and run the server:
+  Install `imgop` and run it on your server:
 
   ```bash
   $ npm install -g imgop
@@ -40,6 +39,13 @@ Image-optimisation server powered by `libvips`
     -h, --help         output usage information
     -V, --version      output the version number
     -p, --port <port>  Port to listen on [$PORT or 3000]
+  ```
+
+  Alternatively, you can also require `imgop` as a module which returns a `Function` that creates a `http.Server` instance.
+
+  ```js
+  require('imgop')()
+  .listen(3000);
   ```
 
   Modify an image by adding parameters to the querystring:

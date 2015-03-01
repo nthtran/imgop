@@ -27,5 +27,5 @@ if (program.args.length > 0) {
 var port = program.port;
 imgop().listen(port, function (err) {
   if (err) throw err;
-  console.log('%s %s listening on %d', pkg.name, pkg.version, port);
+  console.log('%s@%s listening on %d', pkg.name, pkg.version, port);
 });
