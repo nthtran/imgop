@@ -1,6 +1,6 @@
 {
   "name": "imgop",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Image-optimisation server",
   "main": "lib",
   "author": "Nathan Tran",
