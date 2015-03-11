@@ -5,6 +5,7 @@ Image-optimisation server powered by `libvips`
 ## Requirements
 
 - `libvips`
+- `iojs`
 
 ## How it works
 
