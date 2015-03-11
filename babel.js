@@ -5,5 +5,5 @@ require('babel/register')({
   // and babel ignoring any occurrence of
   // 'node_modules' by default.
   ignore: false,
-  only: /imgop\/lib\//
+  only: new RegExp(`${__dirname}\/lib\/`)
 });
