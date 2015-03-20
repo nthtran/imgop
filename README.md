@@ -2,6 +2,10 @@
 
 Image-optimisation server powered by `libvips`
 
+```
+/example.jpg?w=1050&h=700
+```
+
 ## Requirements
 
 - `libvips`
@@ -12,6 +16,7 @@ Image-optimisation server powered by `libvips`
 - Retrieve images from an s3 bucket
 - Cache downloaded images to the file system for subsequent renders using `fs-lru-cache`
 - Resize and adjust image quality using parameters added to the querystring
+- Use behind a CDN to cache resized images
 
 ## Usage
 

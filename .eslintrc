@@ -1,0 +1,17 @@
+---
+  parser: babel-eslint
+  env:
+    node: true
+  rules:
+    quotes: [2, single, avoid-escape]
+    eqeqeq: [2, smart]
+    yoda: 0
+    curly: 0
+    no-use-before-define: [2, nofunc]
+    no-unused-expressions: 0
+    new-parens: 0
+    new-cap: [2, capIsNew: false]
+    no-shadow: 0
+    no-underscore-dangle: 0
+    consistent-return: 0
+    no-alert: 0
