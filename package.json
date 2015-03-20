@@ -2,7 +2,7 @@
   "name": "imgop",
   "version": "0.1.1",
   "description": "Image-optimisation server",
-  "main": "lib",
+  "main": "index.js",
   "author": "Nathan Tran",
   "license": "MIT",
   "repository": "nthtran/imgop",

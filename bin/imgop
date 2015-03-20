@@ -2,11 +2,9 @@
 
 'use strict';
 
-require('../babel');
-
 var program = require('commander');
 var pkg = require('../package');
-var imgop = require('../lib');
+var imgop = require('..');
 
 program
 .version(pkg.version)

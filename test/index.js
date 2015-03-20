@@ -1,12 +1,10 @@
 'use strict';
 
-require('../babel');
-
 let path = require('path');
 let fs = require('fs');
 let assert = require('assert');
 let imageSize = require('image-size');
-let server = require('../lib')().listen();
+let server = require('..')().listen();
 let request = require('supertest').agent(server);
 let S3 = require('../lib/s3');
 let s3 = S3();

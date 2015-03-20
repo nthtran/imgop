@@ -7,3 +7,5 @@ require('babel/register')({
   ignore: false,
   only: new RegExp(`${__dirname}\/lib\/`)
 });
+
+module.exports = require('./lib');
