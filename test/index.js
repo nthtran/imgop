@@ -6,8 +6,14 @@ let assert = require('assert');
 let imageSize = require('image-size');
 let server = require('..')().listen();
 let request = require('supertest').agent(server);
-let S3 = require('../lib/s3');
-let s3 = S3();
+let S3 = require('knox');
+
+let env = process.env;
+let s3 = S3.createClient({
+  key: env.AWS_ACCESS_KEY_ID,
+  secret: env.AWS_SECRET_ACCESS_KEY,
+  bucket: env.IMGOP_BUCKET
+});
 
 let key = '/input.jpg';
 let file = path.resolve('.', `test/fixtures${key}`);
@@ -126,6 +132,16 @@ describe('GET /:image', function () {
 
   it('should not enlarge image', function (done) {
     request.get('/input.jpg?h=5000')
+    .expect(200)
+    .end(function (err, res) {
+      assert.ifError(err);
+      assert.equal(imageSize(res.body).height, baseImage.height);
+      done();
+    });
+  });
+
+  it('should set q at 100 max', function (done) {
+    request.get('/input.jpg?q=5000')
     .expect(200)
     .end(function (err, res) {
       assert.ifError(err);
